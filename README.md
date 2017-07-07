@@ -1,37 +1,53 @@
-## Welcome to GitHub Pages
+# <a href='http://michaelsilva.io'><img src='https://dl.dropboxusercontent.com/s/2042wlthpkfzjcv/banner-github-personal-page.png' height='50'></a>
 
-You can use the [editor on GitHub](https://github.com/jhonatasfender/jhonatas.fender.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Personal Page is a project that contains a person's personal information and resume. It was initially created for the processing of the freeCodeCamp map. The following tools / frameworks / technologies are being used:
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+* HTML5
+* CSS3
+* SASS
+* Gulp
 
-### Markdown
+## Team
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Personal Page was made with love by these people and a bunch of awesome [contributors](https://github.com/MichaelRSilva/PersonalPage).
 
-```markdown
-Syntax highlighted code block
+#### Creator
 
-# Header 1
-## Header 2
-### Header 3
+[![Michael Silva](https://s.gravatar.com/avatar/16866cdbf3edcc2b619db8c3939d35d7?s=70)](https://github.com/MichaelRSilva) |
+--- | --- | --- | --- | --- | --- | ---
+[Michael Silva](https://github.com/MichaelRSilva)<br>IBM, Inc. |
 
-- Bulleted
-- List
+## Usage
 
-1. Numbered
-2. List
+1. Download the project
+2. Install Node + NPM
+3. Install Bower
+4. Install Gulp
+5. Enter the 'src' folder
+6. Run `npm install`
+7. Run `bower install`
+8. To develop run `gulp watch`
+9. Export project to production run `gulp deploy-production`
 
-**Bold** and _Italic_ and `Code` text
+## Structure
+* utils: Has the project in Photoshop and several images that can be used for header background.
+* src: Has all project code
 
-[Link](url) and ![Image](src)
-```
+## Browser Support
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+We do care about it.
 
-### Jekyll Themes
+![IE](https://cloud.githubusercontent.com/assets/398893/3528325/20373e76-078e-11e4-8e3a-1cb86cf506f0.png) | ![Chrome](https://cloud.githubusercontent.com/assets/398893/3528328/23bc7bc4-078e-11e4-8752-ba2809bf5cce.png) | ![Firefox](https://cloud.githubusercontent.com/assets/398893/3528329/26283ab0-078e-11e4-84d4-db2cf1009953.png) | ![Opera](https://cloud.githubusercontent.com/assets/398893/3528330/27ec9fa8-078e-11e4-95cb-709fd11dac16.png) | ![Safari](https://cloud.githubusercontent.com/assets/398893/3528331/29df8618-078e-11e4-8e3e-ed8ac738693f.png)
+--- | --- | --- | --- | --- |
+IE 9+ ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ |
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/jhonatasfender/jhonatas.fender.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+## Credits
 
-### Support or Contact
+#### Fonts
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+* Ubuntu by [Dalton Maag](https://fonts.google.com/specimen/Ubuntu)
+* Roboto by [Christian Robertson](https://fonts.google.com/specimen/Roboto)
+
+## License
+
+This project is licensed under the terms of the [MIT License](https://github.com/MichaelRSilva/PersonalPage/blob/master/LICENSE) © Michael Silva
