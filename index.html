@@ -1,46 +1,153 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="pt-br"> <!--<![endif]-->
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="author" content="CNM - Desenvolvimento" />
-    <meta name="description" content="" />
-    <meta name="keywords" content=""/>
-    <meta name="robots" content="index, follow" />
+<html>
 
-    <link rel="shortcut icon" href="favicon.png">
+<head>
+    <meta charset="UTF-8">
+    <title>jhonatasfender</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <style type="text/css">
+        body {
+            background-color: #000;           
+            font-family: courier, monospace;
+            color: #fff;
+        }
 
-    <link rel="stylesheet" href="assets/css/geral.css">
+        body, input {            
+            font-size: 10px;
+        }
 
-    <!--[if (gte IE 6)&(lte IE 8)]>
-      <script type="text/javascript" src="selectivizr.js"></script>
-      <noscript><link rel="stylesheet" href="[fallback css]" /></noscript>
-    <![endif]-->
+        a {
+            color: #0bc;
+            text-decoration: none;
+        }
 
-  </head>
-  <body>
-    <!--[if lt IE 7]>
-        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+        #a {
+            color: #0f0;
+        }
 
-    <!--[if IE]>
-        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+        #c {
+            color: #0bc;
+        }
 
-    <h1>Bem vindo</h1>
-    <p>Thiago William</p>
+        #b {
+            color: #ff0096;
+        }
 
+        input {
+            width: 38px;
+            border: none;
+            border-color: #000;
+            background-color: #000;            
+            font-family: courier, monospace;
+            color: #fff;
+        }
 
+        input:focus {
+            outline: none;
+        }
 
+        #var {
+            display: inline-block;
+            padding-right: 2px;
+        }
 
-    <script src="assets/js/jquery-1.10.2.min.js"></script>
-    <script src="assets/js/script.js"></script>
+        #atual {            
+            display: inline-block;
+            margin-right: -7px;
+        }
+    </style>
+</head>
 
+<body>
+    <script type="text/javascript">
+        $(document).ready(function($) {
+            var code = $("#code"),
+                _var = $("#var"),
+                atual = $("#atual"),
+                _console = $("#console");
+            code.focus();
 
-  </body>
+            $(window).click(function(event) {
+                code.focus();
+            });
+
+            var helpCommand = {
+                clear: {
+                    nameCommand: "clear",
+                    function: function () {
+                        _console.html("");
+                    }
+                },
+                help:  {
+                    nameCommand: "help",
+                    function: function () {
+                        let s =  _console.html();
+
+                        for (let i in helpCommand) {
+                            let a = helpCommand[i];
+                            s += a.nameCommand + "<br>";
+                        }
+                        _console.html(s);
+                    }
+                }
+            }
+
+            var command = function ($c) {
+                if(helpCommand[$c] == undefined) {
+                    _console.html(_console.html()+"Erro comando não existe<br>");
+                } else {
+                    helpCommand[$c].function();
+                }
+            }
+            code.keyup(function(event) {
+                let s = atual.html();
+                // console.log(event.keyCode);
+                if(event.keyCode == 8) {
+                    atual.html(s.substring(0,s.length - 1))
+                } else if(event.keyCode == 13) {
+                    _console.html(_console.html()+_var.html()+atual.html()+"<br>");
+                    command(atual.html());
+                    atual.html("");
+                } else {
+                    atual.html(s+this.value)
+                    this.value = "";
+                }
+                code.focus();
+            });  
+            var _t, _c = 0, _st = new Array();
+            $.get("text.txt",function(t){
+                _t = t;
+                for (let i = 0; i <= t.length; i++) {
+                    _st.push(setTimeout(function() {
+                        _c++;
+                        if(_t.substring(i-1,i) == "\n")
+                            _console.html(_console.html()+"<br>");
+                        else if (_t.substring(i-1,i) == " ")                            
+                            _console.html(_console.html()+"&nbsp;");
+                        else 
+                            _console.html(_console.html()+_t.substring(i-1,i));
+                        $('html, body').animate({
+                            scrollTop: $(document).height()
+                        }, 0);
+                        if(_t.length == _c) { 
+                            _var.css('display','inline-block');
+                            atual.css('display','inline-block');
+                            code.focus();
+                            for (let i = 0; i <= _st.length; i++) {
+                                clearTimeout(_st[i]);
+                            }
+                        }
+                    },i*0.1));
+                }
+                    // console.log(t.length);
+            });          
+        });
+    </script>
+    <div id="console"></div>
+    <div id="var" style="display: none;">
+        <span id="a">jhonatas@fender</span>:<span id="b">~</span><span id="c">$</span>
+    </div>
+    <div id="atual" style="display: none;"></div>
+    <input id="code">
+</body>
+
 </html>
