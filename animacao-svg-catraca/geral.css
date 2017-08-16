@@ -1,0 +1,48 @@
+.container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 100%;
+}
+
+.grupoAzul{
+	fill: #3c88c9;
+	transform-origin: 50% 50%;
+  animation: rotate_tras 7s infinite linear;
+	
+}
+
+.grupoVerde{
+	fill: #00ba3b;
+	transform-origin: 50% 50%;
+  animation: rotate_frente 4s infinite linear;
+}
+
+.grupoAmarelo{
+	fill: #ffcd00;
+	transform-origin: 50% 50%;
+  animation: rotate_frente 3s infinite linear;
+}
+
+@keyframes rotate_tras{
+	from {
+    transform: rotate(0deg);
+
+  }
+  to { 
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate_frente{
+	from {
+    transform: rotate(0deg);
+
+  }
+  to { 
+    transform: rotate(-360deg);
+  }
+}
+
+
